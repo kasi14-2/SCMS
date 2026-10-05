@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:mysql}:${DB_PORT:3306}/${DB_NAME:scms}?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: ${DB_USERNAME:scms_user}
+    password: ${DB_PASSWORD:scms_pass}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: ${REDIS_HOST:redis}
+    port: ${REDIS_PORT:6379}
+
+jwt:
+  secret: ${JWT_SECRET:change-me-in-production}
+  expirationMs: 86400000
+  refreshExpirationMs: 604800000
+
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000}
+  upload:
+    directory: ${FILE_STORAGE_PATH:/tmp/uploads}
